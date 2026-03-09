@@ -105,7 +105,8 @@ const linkCards = [
   {
     title: "Save Contact",
     caption: "Download contact card",
-    action: downloadVCard,
+    href: "./puran-singh.vcf",
+    download: "puran-singh.vcf",
     icon: "contact",
     tone: "contact",
   },
@@ -183,6 +184,9 @@ function createLinkElement(item, className) {
     element.addEventListener("click", item.action);
   } else {
     element.href = item.href;
+    if (item.download) {
+      element.download = item.download;
+    }
     if (item.external) {
       element.target = "_blank";
       element.rel = "noreferrer";
@@ -215,33 +219,6 @@ function renderLinkCards() {
     `;
     container.append(link);
   });
-}
-
-function downloadVCard() {
-  const vCard = [
-    "BEGIN:VCARD",
-    "VERSION:3.0",
-    `FN:${profile.name}`,
-    `TITLE:${profile.title}`,
-    `TEL;TYPE=CELL:${profile.phoneLink}`,
-    `EMAIL:${profile.email}`,
-    `URL:${profile.website}`,
-    `URL:${profile.instagram}`,
-    `URL:${profile.linkedin}`,
-    `URL:${profile.facebook}`,
-    `ADR:;;${profile.locationLabel};;;;`,
-    "END:VCARD",
-  ].join("\n");
-
-  const blob = new Blob([vCard], { type: "text/vcard;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = "puran-singh-rathore-contact.vcf";
-  document.body.append(link);
-  link.click();
-  link.remove();
-  URL.revokeObjectURL(url);
 }
 
 function hydrateProfile() {

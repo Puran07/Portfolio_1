@@ -7,6 +7,7 @@ Static Linktree-style landing page for Puran Singh Rathore.
 - `index.html`: page structure
 - `styles.css`: visual styling
 - `site.js`: all editable contact data and link rendering
+- `puran-singh.vcf`: downloadable contact card used by the Save Contact button
 - `profile-photo.svg`: placeholder image used when no real photo is present
 
 ## Update Your Details
