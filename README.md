@@ -1,13 +1,13 @@
 # Link Page
 
-Static Linktree-style landing page for Arjun Singh.
+Static Linktree-style landing page for Puran Singh Rathore.
 
 ## Files
 
 - `index.html`: page structure
 - `styles.css`: visual styling
 - `site.js`: all editable contact data and link rendering
-- `profile-photo.svg`: placeholder image you can replace with a real profile photo
+- `profile-photo.svg`: placeholder image used when no real photo is present
 
 ## Update Your Details
 
@@ -24,7 +24,7 @@ Edit the `profile` object at the top of `site.js`:
 
 ## Replace The Photo
 
-Swap `profile-photo.svg` with your real image and keep the same filename, or update the image path in `index.html`.
+Add your real image as `profile-photo.jpg` in the project root. The page will use that automatically and fall back to `profile-photo.svg` if the JPG is missing.
 
 ## Free Hosting
 

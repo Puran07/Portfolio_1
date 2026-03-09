@@ -14,6 +14,7 @@
   --whatsapp: #23b35f;
   --instagram: #d65470;
   --linkedin: #1968c4;
+  --facebook: #1877f2;
   --maps: #cf5f3f;
 }
 
@@ -106,6 +107,8 @@ body::before {
   border-radius: 28px;
   border: 1px solid rgba(31, 27, 22, 0.08);
   object-fit: cover;
+  object-position: center 18%;
+  background: #ead9c5;
   box-shadow: 0 16px 34px rgba(31, 27, 22, 0.14);
   flex-shrink: 0;
 }
@@ -231,6 +234,10 @@ body::before {
 
 .link-card[data-tone="linkedin"] .link-card__icon {
   background: linear-gradient(135deg, #338eff, var(--linkedin));
+}
+
+.link-card[data-tone="facebook"] .link-card__icon {
+  background: linear-gradient(135deg, #4d9cff, var(--facebook));
 }
 
 .link-card[data-tone="maps"] .link-card__icon {

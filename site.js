@@ -1,15 +1,20 @@
 const profile = {
-  name: "Arjun Singh",
+  name: "Puran Singh Rathore",
   title: "Software Developer",
-  phoneDisplay: "+91 98765 43210",
-  phoneLink: "+919876543210",
-  whatsappNumber: "919876543210",
-  email: "arjun@example.com",
+  photo: "./profile-photo.jpg",
+  photoFallback: "./profile-photo.svg",
+  phoneDisplay: "+91 6367297586",
+  phoneLink: "+916367297586",
+  whatsappNumber: "916367297586",
+  email: "kpuran7773@gmail.com",
   website: "https://yourwebsite.com",
-  instagram: "https://instagram.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
-  maps: "https://maps.google.com/?q=Your+Location",
-  locationLabel: "Your City, India",
+  instagram: "https://instagram.com/its.puru_07",
+  linkedin:
+    "https://www.linkedin.com/in/puran07?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+  facebook: "https://www.facebook.com/share/14WmtNoM1cW/",
+  maps:
+    "https://www.google.com/maps/@24.6127495,73.7307619,19.34z?authuser=0&entry=ttu&g_ep=EgoyMDI2MDMwNC4xIKXMDSoASAFQAw%3D%3D",
+  locationLabel: "Udaipur, Rajasthan, India",
 };
 
 const quickActions = [
@@ -82,6 +87,14 @@ const linkCards = [
     tone: "linkedin",
   },
   {
+    title: "Facebook",
+    caption: "Follow on Facebook",
+    href: profile.facebook,
+    icon: "facebook",
+    external: true,
+    tone: "facebook",
+  },
+  {
     title: "Google Maps",
     caption: profile.locationLabel,
     href: profile.maps,
@@ -132,6 +145,12 @@ const icons = {
   linkedin: `
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M7.2 10.3V18M7.2 6.6v.1M11.4 10.3V18M11.4 12.5c0-1.4 1.1-2.5 2.5-2.5S16.4 11.1 16.4 12.5V18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="4.5" y="4.5" width="15" height="15" rx="3.5" stroke="currentColor" stroke-width="1.7"/>
+    </svg>
+  `,
+  facebook: `
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M13.1 19V12.6H15.3L15.7 10H13.1V8.4C13.1 7.7 13.4 7.2 14.4 7.2H15.8V4.9C15.1 4.8 14.4 4.7 13.8 4.7C11.8 4.7 10.4 5.9 10.4 8.3V10H8.3V12.6H10.4V19H13.1Z" fill="currentColor"/>
       <rect x="4.5" y="4.5" width="15" height="15" rx="3.5" stroke="currentColor" stroke-width="1.7"/>
     </svg>
   `,
@@ -209,6 +228,7 @@ function downloadVCard() {
     `URL:${profile.website}`,
     `URL:${profile.instagram}`,
     `URL:${profile.linkedin}`,
+    `URL:${profile.facebook}`,
     `ADR:;;${profile.locationLabel};;;;`,
     "END:VCARD",
   ].join("\n");
@@ -217,7 +237,7 @@ function downloadVCard() {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = "arjun-singh-contact.vcf";
+  link.download = "puran-singh-rathore-contact.vcf";
   document.body.append(link);
   link.click();
   link.remove();
@@ -229,6 +249,22 @@ function hydrateProfile() {
   document.querySelector("#profile-title").textContent = profile.title;
 }
 
+function hydrateProfilePhoto() {
+  const photo = document.querySelector("#profile-photo");
+  const image = new Image();
+
+  image.addEventListener("load", () => {
+    photo.src = profile.photo;
+  });
+
+  image.src = profile.photo;
+
+  photo.addEventListener("error", () => {
+    photo.src = profile.photoFallback;
+  });
+}
+
 hydrateProfile();
+hydrateProfilePhoto();
 renderQuickActions();
 renderLinkCards();
